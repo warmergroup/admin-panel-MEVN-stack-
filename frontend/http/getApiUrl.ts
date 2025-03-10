@@ -1,5 +1,5 @@
 export const getApiUrl = () => {
-  console.log('process env fayli:', process.env);
-  return process.env.NUXT_PUBLIC_API_URL || "http://localhost:8080";
-  // return process.env.NUXT_PUBLIC_API_URL || "http://localhost:8080";
+  console.log('process env:', import.meta.env.NUXT_PUBLIC_API_URL);
+
+  return import.meta.env.NUXT_PUBLIC_API_URL || "http://localhost:8080";
 };

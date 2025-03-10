@@ -27,6 +27,8 @@ const statistics = ref([
     style: '#0ff;',
   }
 ]);
+
+console.log('bosh sahifadagi process:',useRuntimeConfig().public)
 </script>
 
 <template>
