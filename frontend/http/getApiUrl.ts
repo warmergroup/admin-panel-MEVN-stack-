@@ -1,5 +1,6 @@
-export const getApiUrl = () => {
-  console.log('process env:', import.meta.env.NUXT_PUBLIC_API_URL);
+import { useNuxtApp } from '#app'
 
-  return import.meta.env.NUXT_PUBLIC_API_URL || "http://localhost:8080";
-};
+export const getApiUrl = () => {
+  const { $config } = useNuxtApp()
+  return $config.public.apiBase
+}

@@ -28,7 +28,8 @@ const statistics = ref([
   }
 ]);
 
-console.log('bosh sahifadagi process:',useRuntimeConfig().public)
+console.log('bosh sahifadagi runtimeConfig:',useRuntimeConfig().public)
+console.log('bosh sahifa process:',process.env.NUXT_PUBLIC_API_URL)
 </script>
 
 <template>
