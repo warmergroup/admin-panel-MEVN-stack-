@@ -37,7 +37,7 @@ const statistics = ref([
       <SharedAlert :message="extractErrorMessage(statistics.find(stat => stat.data.error)?.data.error)"/>
     </div>
     <div
-      class="card-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 overflow-y-auto">
+      class="card-container mx-auto overflow-y-auto h-[65vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
       <UiStatisticsCard
         v-for="stat in statistics"
         :key="stat.key"

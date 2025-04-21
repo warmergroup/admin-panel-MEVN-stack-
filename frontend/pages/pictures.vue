@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+  <script lang="ts" setup>
 import {useGetImagesQuery} from '~/query/images/getImages';
 import {useConfirm} from '~/hooks/use-confirm';
 import {extractErrorMessage} from '~/utils/formUtils';
@@ -39,7 +39,7 @@ const openPreviewModal = (url: string) => {
       <SharedAlert :message="extractErrorMessage(error)"/>
     </div>
     <div v-else class="container mx-auto overflow-y-auto h-[65vh]">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pr-3  gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pr-3  gap-4">
         <div
           v-for="(image, index) in images" :key="index"
           class="card-animation flex bg-white dark:bg-gray-900 flex-col shadow-md transition-all duration-500 hover:shadow-xl gap-2 rounded-md overflow-hidden">

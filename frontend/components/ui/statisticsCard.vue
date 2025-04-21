@@ -28,7 +28,7 @@ onMounted(() => {
 <template>
   <div
     :style="'--clr:' + style"
-    class="card bg-blue-100 dark:bg-gray-700 relative rounded-md w-full hover:shadow-md h-72 overflow-hidden p-3 after:dark:bg-gray-700/90  after:bg-blue-100/90  after:rounded-md">
+    class="card bg-blue-100 dark:bg-gray-700 relative rounded-md w-full hover:shadow-md h-52 md:h-72 overflow-hidden p-3 after:dark:bg-gray-700/90  after:bg-blue-100/90  after:rounded-md">
     <div class="card-content rounded-md  w-full h-full">
       <h1 class="text-2xl font-semibold">{{ title }}</h1>
       <p>Jami: {{ total }} ta</p>

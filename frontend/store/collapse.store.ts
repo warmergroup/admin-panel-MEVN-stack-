@@ -2,7 +2,7 @@ import {defineStore} from 'pinia';
 
 export const useCollapseStore = defineStore('collapse', {
   state: () => ({
-    isCollapsedState: false, // State nomini o'zgartiramiz
+    isCollapsedState: true, // State nomini o'zgartiramiz
   }),
   actions: {
     toggleCollapse() {
