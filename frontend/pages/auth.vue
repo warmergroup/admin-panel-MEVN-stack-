@@ -1,18 +1,31 @@
 <script lang="ts" setup>
 import {useAuth} from '~/hooks/use-auth';
 import {storeToRefs} from 'pinia';
+import $axios from "~/http";
+import {useAuthStore} from "~/store/auth.store";
 
 const auth = useAuth();
+const authStore = useAuthStore()
 const {authState} = storeToRefs(auth);
 const router = useRouter();
 const isLoading = ref(false);
 
 onMounted(async () => {
   if (localStorage.getItem('accessToken')) {
-    await router.push('/');
+    try {
+      const { data } = await $axios.post('/auth/refresh');
+      localStorage.setItem('accessToken', data.accessToken);
+      authStore.setUser(data.user);
+      authStore.setIsAuth(true);
+      await router.push('/');
+    } catch {
+      // Token yaroqsiz — kirish sahifasi
+      isLoading.value = true;
+    }
   } else {
     isLoading.value = true;
   }
+
 });
 </script>
 

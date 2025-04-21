@@ -15,15 +15,27 @@ import cors from "cors";
 const app = express();
 const currentDir = path.resolve();
 
+const API_URL = process.env.API_URL;
+const PORT = process.env.PORT || 8080;
+const DB_URL = process.env.DB_URL;
+const CLIENT_URL = process.env.CLIENT_URL
+
 // CORS Middleware
+// app.use(
+//   cors({
+//     origin: process.env.CLIENT_URL,
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin"],
+//   })
+// );
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin"],
+    origin: CLIENT_URL,
   })
-);
+)
 
 app.use(express.json());
 app.use(cookieParser());
@@ -37,11 +49,6 @@ app.use("/api/auth", authRouter);
 app.use("/api/category", categoryRouter);
 
 app.use(errorMiddleware);
-
-const API_URL = process.env.API_URL;
-const PORT = process.env.PORT || 8080;
-const DB_URL = process.env.DB_URL;
-
 const appStart = async () => {
   try {
     await mongoose.connect(DB_URL);

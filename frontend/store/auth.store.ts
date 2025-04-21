@@ -3,12 +3,12 @@ import type {IUser} from "~/interfaces";
 
 export const useAuthStore = defineStore("authStore", {
   state: () => ({
-    user: {} as IUser,
+    user: null as IUser | null,
     isAuth: false,
     isLoading: true,
   }),
   actions: {
-    setUser(user: IUser) {
+    setUser(user: IUser | null) {
       this.user = user;
     },
     setIsAuth(isAuth: boolean) {

@@ -26,7 +26,7 @@ const handleToggleSidebar = () => {
           </p>
         </NuxtLink>
         <UButton size="lg" color="blue" variant="ghost"
-          :icon="isCollapsed ? 'material-symbols:menu' : 'material-symbols:close'" @click="handleToggleSidebar" />
+          :icon="isCollapsed ? 'material-symbols-light:menu' : 'material-symbols:close'" @click="handleToggleSidebar" />
       </div>
 
       <div class="flex items-center justify-between gap-2 flex-wrap">
