@@ -11,7 +11,7 @@ const isCollapsed = computed(() => collapseStore.isCollapsed);
     <LayoutsNavbar />
     <layoutsSidebar :class="isCollapsed ? 'translate-x-[-120%]' : 'translate-x-0'" class="sidebar" />
 
-    <section :class="{ 'mx-3': isCollapsed, 'ml-72 mr-3': !isCollapsed }"
+    <section :class="{ 'mx-3': isCollapsed, 'md:ml-72 md:mr-3': !isCollapsed }"
       class="mt-20 transition-all duration-300 section-height overflow-hidden relative bg-blue-50 dark:bg-gray-800 rounded-md p-2">
       <slot />
     </section>

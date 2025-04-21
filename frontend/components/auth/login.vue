@@ -53,13 +53,13 @@ const onSubmit = (event: SubmitEvent) => {
 </script>
 
 <template>
-  <h1 class="text-2xl font-bold text-center">Kirish</h1>
+  <h2 class="text-2xl font-bold text-center">Kirish</h2>
   <div v-if="error">
     <SharedAlert :message="extractErrorMessage(error)"/>
   </div>
   <SharedFormWrapper :validate="validateLogin.bind(null, state)" :state="state" @submit="onSubmit" buttonLabel="Kirish"
                      :isPending="isPending">
-    <div class="text-xl text-neutral-500">
+    <div class="text-xl text-neutral-400">
       Hali ro'yxatdan o'tmadingizmi?
       <span role="button" class="text-blue-500 hover:underline"
             @click="auth.setAuth('register')">Ro'yxatdan o'tish</span>

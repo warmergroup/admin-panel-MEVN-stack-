@@ -31,7 +31,7 @@ onMounted(async () => {
 
 <template>
   <div v-if="isLoading" class="w-full min-h-[80vh] flex justify-center items-center">
-    <UCard class="w-1/2 p-3 dark:bg-gray-600 bg-gray-100">
+    <UCard class="w-full md:w-1/2 md:p-3 dark:bg-gray-600 bg-gray-100">
       <AuthLogin v-if="authState === 'login'"/>
       <AuthRegister v-if="authState === 'register'"/>
       <AuthForgotPassword v-if="authState === 'forgot_password'"/>
