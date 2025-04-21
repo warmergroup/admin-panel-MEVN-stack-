@@ -28,6 +28,3 @@ onMounted(async () => {
   </UMeterGroup>
 </template>
 
-<style scoped>
-/* Stil kodlari */
-</style>

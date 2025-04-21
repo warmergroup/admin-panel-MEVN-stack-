@@ -30,7 +30,7 @@ onMounted(() => {
 
     <!-- Sectionga bosilsa sidebar yopiladi (faqat mobilda) -->
     <section
-      :class="{ 'mx-3': isCollapsed, 'lg:ml-72 md:mr-3': !isCollapsed }"
+      :class="{ 'lg:px-3': isCollapsed, 'lg:ml-72 md:mr-3': !isCollapsed }"
       class="mt-20 transition-all duration-300 section-height overflow-hidden relative bg-blue-50 dark:bg-gray-800 rounded-md p-2"
       @click="() => {
         if (isMobile && !isCollapsed) {
