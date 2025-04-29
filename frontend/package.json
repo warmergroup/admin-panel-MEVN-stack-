@@ -22,5 +22,8 @@
     "pinia": "^2.3.0",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/material-symbols": "^1.2.20"
   }
 }
