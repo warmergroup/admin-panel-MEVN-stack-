@@ -1,6 +1,6 @@
 import axios from "axios";
-import { API_URL } from ".";
-import { useAuthStore } from "~/store/auth.store";
+import {API_URL} from ".";
+import {useAuthStore} from "~/store/auth.store";
 
 const $api = axios.create({
   withCredentials: true,
@@ -9,12 +9,9 @@ const $api = axios.create({
 
 // REQUEST: Tokenni headerga qo‘shish
 $api.interceptors.request.use(config => {
-  const accessToken = localStorage.getItem('accessToken');
-  if (accessToken) {
-    config.headers.Authorization = `Bearer ${accessToken}`;
-  }
-  return config;
-});
+  config.headers.Authorization = `Bearer ${localStorage.getItem('accessToken')}`
+  return config
+})
 
 // RESPONSE: Token yangilash va qayta so‘rov
 $api.interceptors.response.use(
@@ -25,7 +22,7 @@ $api.interceptors.response.use(
     if (error.response?.status === 401 && !originalRequest._isRetry) {
       originalRequest._isRetry = true;
       try {
-        const { data } = await axios.post(`${API_URL}/api/auth/refresh`, {}, { withCredentials: true });
+        const {data} = await axios.post(`${API_URL}/api/auth/refresh`, {}, {withCredentials: true});
         localStorage.setItem('accessToken', data.accessToken);
 
         // AuthStore yangilash
