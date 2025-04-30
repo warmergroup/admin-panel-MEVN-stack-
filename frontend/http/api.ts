@@ -1,5 +1,5 @@
 import axios from "axios";
-import {API_URL} from ".";
+import $axios, {API_URL} from ".";
 
 const $api = axios.create({
   withCredentials: true,
