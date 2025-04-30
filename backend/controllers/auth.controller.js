@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
-
-dotenv.config();
 import BaseError from "../errors/base.error.js";
 import AuthService from "../services/auth.service.js";
+
+dotenv.config();
 
 const CLIENT_URL = process.env.CLIENT_URL;
 
@@ -72,7 +72,7 @@ class AuthController {
 
   async refresh(req, res, next) {
     try {
-      const {refreshToken} = req.cookies;
+      const {refreshToken} = await req.cookies;
       if (!refreshToken) throw BaseError.UnauthorizedError("Refresh token not found");
       const data = await AuthService.refresh(refreshToken);
       AuthController.setCookie(res, data.refreshToken);

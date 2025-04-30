@@ -13,7 +13,7 @@ const isLoading = ref(false);
 onMounted(async () => {
   if (localStorage.getItem('accessToken')) {
     try {
-      const { data } = await $axios.post('/auth/refresh');
+      const {data} = await $axios.post('/auth/refresh');
       localStorage.setItem('accessToken', data.accessToken);
       authStore.setUser(data.user);
       authStore.setIsAuth(true);
