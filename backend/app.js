@@ -1,6 +1,4 @@
 import dotenv from "dotenv";
-
-dotenv.config();
 import path from "path";
 import express from "express";
 import mongoose from "mongoose";
@@ -11,6 +9,8 @@ import imagesRouter from "./routes/images.router.js";
 import cookieParser from "cookie-parser";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import cors from "cors";
+
+dotenv.config();
 
 const app = express();
 const currentDir = path.resolve();
@@ -32,10 +32,12 @@ const CLIENT_URL = process.env.CLIENT_URL
 
 app.use(
   cors({
-    credentials: true,
     origin: CLIENT_URL,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
-)
+);
 
 app.use(express.json());
 app.use(cookieParser());

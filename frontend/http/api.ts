@@ -6,21 +6,23 @@ const $api = axios.create({
   baseURL: `${API_URL}/api`,
 })
 
-$api.interceptors.request.use(config => {
-  config.headers.Authorization = `Bearer ${localStorage.getItem('accessToken')}`
-  return config
-})
+$api.interceptors.request.use(
+  (config) => {
+    const accessToken = localStorage.getItem('accessToken');
+    config.headers.setAuthorization(`Bearer ${accessToken}`)
+    return config
+  }, (error) => {
+    console.log('Request failed >>>', error);
+  }
+)
 
 $api.interceptors.response.use(
-  config => {
-    return config
-  },
+  response => response,
   async error => {
     const originalRequest = error.config
 
-    if (error.response.status === 401 && error.config && !error.config._isRetry) {
+    if (error.response.status === 401 && originalRequest && !originalRequest._isRetry) {
       originalRequest._isRetry = true
-
       try {
         const {data} = await $axios.get('/auth/refresh')
         localStorage.setItem('accessToken', data.accessToken)
